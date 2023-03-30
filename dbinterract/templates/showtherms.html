@@ -1,0 +1,21 @@
+<h1>Thermometers List</h1>
+<table border="0">
+<TR bgcolor="lightgrey"><TD>Therm_name</TD><TD>Latitude</TD><td>Longitude</td><td>Elevation</td></TR>
+    {% for item in all %}
+    <TR>
+        <TD>
+            {{item.plain_name}}
+        </TD>
+        <TD>
+            {{item.device_lat}}
+        </TD>    
+        <TD>
+            {{item.device_lon}}
+        </TD>    
+        <TD>
+            {{item.device_ele}} ft
+        </TD>    
+    </TR>
+    {% endfor %}
+</table>
+{% csrf_token %}

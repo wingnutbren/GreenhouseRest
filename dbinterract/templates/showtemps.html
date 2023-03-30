@@ -1,0 +1,28 @@
+<h1>Temperature Observations List</h1>
+<body>
+
+{% if messages %}
+Message:
+  {% for message in messages %}
+     {{message}}
+  {% endfor %}
+{% endif %}
+<table border="0">
+<TR bgcolor="lightgrey"><TD>Therm_name</TD><TD>time</TD><td>temp (F)</td></TR>
+    {% for item in all %}
+    <TR>
+        <TD>
+            {{item.therm}}
+        </TD>
+        <TD>
+            {{item.datetime}}
+        </TD>    
+        <TD>
+            {{item.ftemp}}
+        </TD>    
+ 
+    </TR>
+    {% endfor %}
+</table>
+
+</body>

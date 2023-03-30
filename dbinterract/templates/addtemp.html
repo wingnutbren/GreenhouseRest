@@ -1,0 +1,17 @@
+<h1>Manually add Temperature Entry</h1>
+<div>
+    <form method="POST" action="{% url 'NEWPAGE' %}">
+        {% csrf_token %}
+        <select name="therm">
+        {% for item in all %}
+            <option value="{{item.id}}">{{item.plain_name}}</option>
+        {% endfor %}
+    </select>
+    <br/>
+    <input type="text" name="datetime" placeholder="datetime">
+    <br/>
+    <input type="text" name="ftemp" placeholder="Temperature Farenheit">
+    <br/>
+    <button type ="submit" >Save Temp</button>
+    </form>
+</div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse, HttpResponse
 # Create your views here.
-from .models import Temp, ThermId
+from .models import Temp, Thermometer
 from .forms import TempForm
 from django.contrib import messages
 
@@ -17,8 +17,16 @@ def do_web_check(request):
 
 
 def getTherms(request):
-    all_members = ThermId.objects.all
+    all_members = Thermometer.objects.all
     return render(request,'showtherms.html',{'all':all_members})
+
+def getATherm(request):
+    mac=request.GET.get("mac")
+    # r = Thermometer.objects.filter(device_mac=mac)
+    oneTherm = Thermometer.objects.get(device_mac=mac)
+    data = {"mac":oneTherm.device_mac,"id":oneTherm.pk}
+    return JsonResponse(data,safe=False)
+    
 
 
 def getTemps(request):
@@ -37,6 +45,6 @@ def addTemp(request):
         return redirect('AllTemps')
     
     else:
-        all_members = ThermId.objects.all
+        all_members = Thermometer.objects.all
         return render(request,'addtemp.html',{'all':all_members})
 

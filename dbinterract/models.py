@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class ThermId(models.Model):
+class Thermometer(models.Model):
     plain_name = models.CharField(max_length=30)
     device_mac = models.CharField(max_length=30) 
     device_lat = models.IntegerField()
@@ -12,7 +12,7 @@ class ThermId(models.Model):
         return self.plain_name
 
 class Temp(models.Model):
-    therm = models.ForeignKey(ThermId, on_delete=models.DO_NOTHING)
+    therm = models.ForeignKey(Thermometer, on_delete=models.DO_NOTHING)
     datetime = models.IntegerField()
     ftemp = models.FloatField()
     

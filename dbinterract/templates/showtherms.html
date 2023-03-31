@@ -1,6 +1,6 @@
 <h1>Thermometers List</h1>
 <table border="0">
-<TR bgcolor="lightgrey"><TD>Therm_name</TD><TD>Latitude</TD><td>Longitude</td><td>Elevation</td></TR>
+<TR bgcolor="lightgrey"><TD>Therm_name</TD><TD>Latitude</TD><td>Longitude</td><td>Elevation</td><td>Device MAC</td></TR>
     {% for item in all %}
     <TR>
         <TD>
@@ -15,6 +15,9 @@
         <TD>
             {{item.device_ele}} ft
         </TD>    
+        <TD>
+            {{item.device_mac}}
+        </TD> 
     </TR>
     {% endfor %}
 </table>

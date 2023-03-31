@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ThermId',
+            name='Thermometer',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('plain_name', models.CharField(max_length=30)),
@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('datetime', models.IntegerField()),
                 ('ftemp', models.FloatField()),
-                ('therm', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='dbinterract.thermid')),
+                ('therm', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='dbinterract.Thermometer')),
             ],
         ),
     ]

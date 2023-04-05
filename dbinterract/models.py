@@ -11,12 +11,14 @@ class Thermometer(models.Model):
     def __str__(self) -> str:
         return self.plain_name
 
+    
+
 class Temp(models.Model):
     therm = models.ForeignKey(Thermometer, on_delete=models.DO_NOTHING)
     datetime = models.IntegerField()
     ftemp = models.FloatField()
     
     def __str__(self) -> str:
-        return str(self.ftemp)
+        return str(f"{self.ftemp} : {self.therm}")
 
     

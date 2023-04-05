@@ -1,0 +1,15 @@
+<h1>Add New Thermometer</h1>
+<div>
+    <form method="POST" action="{% url 'AddTherm' %}">
+        {% csrf_token %}
+    <br/>
+    <input type="text" name="plain_name" placeholder="Plain Name">
+    <input type="text" name="device_mac" placeholder="Device MAC Address">
+    <br/>
+    <input type="text" name="device_lat" value="0" placeholder="Latitude">
+    <input type="text" name="device_lon" value="0" placeholder="Longitude">
+    <input type="text" name="device_ele" value="0" placeholder="Elevation">
+    <br/>
+    <button type ="submit" >Add Thermometer</button>
+    </form>
+</div>

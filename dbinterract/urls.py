@@ -8,9 +8,10 @@ from . import views
 urlpatterns = [
     path('CheckIn',    views.insert_obs ),
     path('WebCheck',   views.do_web_check),
-    path('AllTherms',  views.getTherms),
+    path('AllTherms',  views.getTherms, name = 'AllTherms'),
     path('ATherm',     views.getATherm),
     path('AllTemps',   views.getTemps, name= 'AllTemps'),
-    path('AddTemps',   views.addTemp, name='NEWPAGE')
+    path('AddTemp',   views.addTemp, name='AddTemp'),
+    path('AddTherm',   views.addTherm, name='AddTherm'),
 ]
 

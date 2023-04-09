@@ -1,4 +1,10 @@
 <h1>Thermometers List</h1>
+{% if messages %}
+Message:
+  {% for message in messages %}
+     {{message}}
+  {% endfor %}
+{% endif %}
 <table border="0">
 <TR bgcolor="lightgrey"><TD>Therm_name</TD><TD>Latitude</TD><td>Longitude</td><td>Elevation</td><td>Device MAC</td></TR>
     {% for item in all %}
@@ -18,6 +24,9 @@
         <TD>
             {{item.device_mac}}
         </TD> 
+        <TD>
+            <a href="DeleteThermById/{{ item.id }}">delete id: {{ item.id }}</a>
+        </TD>
     </TR>
     {% endfor %}
 </table>

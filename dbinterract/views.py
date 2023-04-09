@@ -18,7 +18,7 @@ def do_web_check(request):
 
 def getTherms(request: HttpRequest):
     #we don't expect a lot. get the entire queryset
-    all_members = Thermometer.objects.all().values('plain_name','device_mac','device_lat','device_lon','device_ele')
+    all_members = Thermometer.objects.all().values('plain_name','device_mac','device_lat','device_lon','device_ele','id')
     if request.GET.get('json','') == 'true':
         data = list(all_members)
         return JsonResponse(data, safe=False)
@@ -35,9 +35,6 @@ def getATherm(request):
         return JsonResponse(data,safe=False)
     else:
         return JsonResponse({'noresults':'none'},safe=False)
-
-    
-
 
 def getTemps(request):
     all_members = Temp.objects.all
@@ -73,3 +70,12 @@ def addTherm(request):
         return render(request,'addTherm.html',{'all':all_members})
 
 
+def deleteThermById(request,id):
+    therm = Thermometer.objects.get(id=id)
+    therm.delete()
+    messages.success(request,(f"Item {id} Deleted"))
+    return redirect('AllTherms')
+
+def deleteThermByNameMac(request,plain_name,device_mac):
+    therm = Thermometer.objects.get(device_mac=device_mac,plain_name=plain_name)
+    therm.delete()

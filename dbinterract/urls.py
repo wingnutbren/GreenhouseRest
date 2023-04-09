@@ -13,5 +13,7 @@ urlpatterns = [
     path('AllTemps',   views.getTemps, name= 'AllTemps'),
     path('AddTemp',   views.addTemp, name='AddTemp'),
     path('AddTherm',   views.addTherm, name='AddTherm'),
+    path('DeleteThermById/<int:id>',   views.deleteThermById, name='deleteThermById'),
+    path('DeleteThermByNameMac/<str:plain_name>/<str:device_mac>',   views.deleteThermByNameMac, name='deleteThermByNameMac'),
 ]
 

@@ -63,7 +63,10 @@ def addTherm(request):
             messages.success(request,('Okay, New Thermometer has been added'))
         else:
             messages.error(request,'Failed Validation')
-        return redirect('AllTherms')
+        if request.POST.get('json')=='true':
+            return JsonResponse({'id':form.instance.id})
+        else:
+            return redirect('AllTherms')
     
     else:
         all_members = Thermometer.objects.all

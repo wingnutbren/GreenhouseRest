@@ -79,3 +79,4 @@ def deleteThermById(request,id):
 def deleteThermByNameMac(request,plain_name,device_mac):
     therm = Thermometer.objects.get(device_mac=device_mac,plain_name=plain_name)
     therm.delete()
+    return JsonResponse({'Okay':'none'},safe=False)

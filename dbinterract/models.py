@@ -9,7 +9,7 @@ class Thermometer(models.Model):
     device_ele = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.plain_name
+        return f"{self.plain_name} ({self.id})"
 
     
 

@@ -1,6 +1,6 @@
 <h1>Manually add Temperature Entry</h1>
 <div>
-    <form method="POST" action="{% url 'NEWPAGE' %}">
+    <form method="POST" action="{% url 'AddTemp' %}">
         {% csrf_token %}
         <select name="therm">
         {% for item in all %}
